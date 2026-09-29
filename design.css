@@ -1,0 +1,345 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ffffff;
+  margin: 0;
+}
+
+/* accessibilité : focus clavier toujours visible */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Navigation Hamburger */
+button span {
+  display: block;
+  width: 20px;
+  height: 4px;
+  background-color: black;
+  margin: 2px;
+}
+nav ul {
+  display: flex;
+  gap: 40px; /* ajoute un espace entre les liens */
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+nav ul li a {
+  padding: 4px 2px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+/* lien actif, ajouté en JS selon la section visible au scroll */
+nav ul li a.actif {
+  border-bottom: 2px solid #3b82f6;
+  font-weight: 600;
+}
+a {
+  text-decoration: none;
+  color: black;
+  font-family: fantasy;
+}
+nav button {
+  display: none; /* Masque la navigation hamburger sur grand écran */
+}
+/* Gerer la navigation */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: beige;
+  padding: 8px 24px;
+}
+.non h2 {
+  margin-bottom: -150px;
+}
+.text p {
+  margin-top: 0;
+}
+/* Modification du logo */
+.logo img {
+  width: 85px;
+  height: 85px;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+  }
+  nav ul.menu-ouvert {
+    display: flex;
+  }
+  nav button {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+#hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 7px -3px 0px rgb(121, 115, 115);
+  border-radius: 100% 0% 100% 0% / 0% 100% 0% 100%;
+  background-color: rgb(177, 204, 227);
+  position: relative;
+  overflow: hidden;
+}
+.photo {
+  flex-shrink: 0;
+  margin-left: auto; /* pousse la photo à droite même si le texte est court */
+}
+.photo img {
+  border-radius: 4px;
+  border: 10px solid #ffffff;
+  border-bottom: 40px solid #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform: rotate(-3deg);
+  width: 200px;
+  height: 250px;
+  object-fit: cover;
+  position: relative;
+}
+
+@media (max-width: 700px) {
+  #hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .photo {
+    margin-left: 0;
+  }
+}
+.non {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-indent: 20px;
+}
+.text {
+  text-indent: 20px;
+}
+
+/* A-propos */
+#a_propos {
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 7px -3px 0px rgb(121, 115, 115);
+  border-radius: 100% 0% 100% 0% / 0% 100% 0% 100%;
+  background-color: rgb(177, 204, 227);
+}
+#competences {
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 7px -3px 0px rgb(121, 115, 115);
+  border-radius: 100% 0% 100% 0% / 0% 100% 0% 100%;
+  background-color: rgb(177, 204, 227);
+}
+
+/* competences */
+#skills {
+  padding: 40px;
+  margin: 20px;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  max-width: 600px;
+  background-color: #ffffff;
+}
+#skills h2 {
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+.skill-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.skill-name {
+  width: 100px;
+  font-weight: 600;
+  font-size: 14px;
+}
+.bar {
+  flex: 1;
+  height: 12px;
+  background-color: #e5e5e5;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 1s ease-in-out;
+}
+.skill-percent {
+  width: 40px;
+  text-align: right;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Projets */
+#projets {
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 7px -3px 0px rgb(121, 115, 115);
+  border-radius: 100% 0% 100% 0% / 0% 100% 0% 100%;
+  background-color: rgb(177, 204, 227);
+}
+#projets h2 {
+  margin-bottom: 24px;
+}
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+.project-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.project-card h3 {
+  margin-top: 0;
+}
+.tag-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.tag {
+  font-size: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 2px 8px;
+}
+.project-links a {
+  margin-right: 12px;
+  color: #1c1616;
+  font-weight: 600;
+}
+
+/* Contact */
+#contacts {
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 7px -3px 0px rgb(121, 115, 115);
+  border-radius: 100% 0% 100% 0% / 0% 100% 0% 100%;
+  background-color: rgb(177, 204, 227);
+  /* hauteur retirée : la boîte s'ajuste maintenant à son contenu */
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  /* grid-template-rows retiré : plus besoin de 5 lignes forcées pour 2 blocs */
+}
+
+/* liste de contacts : icône + texte alignés */
+.info-list {
+  list-style: none;
+  padding: 0;
+}
+.info-list li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+}
+.icon-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #1c1616;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1c1616;
+  flex-shrink: 0;
+}
+
+/* formulaire */
+.field {
+  margin-bottom: 20px;
+}
+.field label {
+  display: block;
+  font-size: 0.8rem;
+  margin-bottom: 6px;
+}
+.field input,
+.field textarea {
+  width: 90%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font: inherit;
+}
+.field textarea {
+  min-height: 120px;
+}
+button[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 4px;
+  background: #333;
+  color: white;
+  cursor: pointer;
+}
+button[type="submit"]:hover {
+  background: #111;
+}
+/* Bouton retour en haut */
+#retour-haut {
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background-color: #333;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+#retour-haut:hover {
+  background-color: #111;
+}
+/* affiché par le JS via cette classe quand on a assez scrollé */
+#retour-haut.visible {
+  display: block;
+}
+
+footer {
+  text-align: center;
+  padding: 24px;
+  color: #555;
+  font-size: 0.85rem;
+}
+
+/* mobile : on empile les 2 colonnes du bloc contact */
+@media (max-width: 860px) {
+  .parent {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
